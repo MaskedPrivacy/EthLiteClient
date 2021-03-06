@@ -1,3 +1,9 @@
+/*
+Digital property of the Masked Privacy Group.
+If you wish to copy the code for your own uses, please give credits directed to my github account, thank you  <('-')>
+
+*/
+
 using MaskedManager;
 using System;
 using System.Threading;
@@ -8,6 +14,7 @@ namespace MaskedManager
     {
         static void Main(string[] args)
         {
+            //We are using command line args to implement automation in future devleopment - these args could be multiple file entries specifying your sending wallet and receiver if a transfer is made.           
             string FromAddr = args[0];
             string ToAddr = args[1];
             int Amount = 0;
@@ -24,10 +31,10 @@ namespace MaskedManager
 
             ERC20Manager MManager = new ERC20Manager(FromAddr, "<privkey>", ToAddr, Amount);
 
-            //Fetch wallet balances in our wallets.txt file :)
+            //Fetch wallet balances in MyWallets.txt file (one wallet hash per line in file)
             string line;
 
-            System.IO.StreamReader file = new System.IO.StreamReader("wallets.txt");
+            System.IO.StreamReader file = new System.IO.StreamReader("MyWallets.txt");
             while ((line = file.ReadLine()) != null)
             {
                 System.Console.WriteLine(line + ": ");
